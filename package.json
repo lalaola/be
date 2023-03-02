@@ -4,9 +4,11 @@
   "description": "",
   "type": "module",
   "main": "index.js",
+  "engines": "14.x",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "npm i"
+    "start": "node inde.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+ 
   },
   "keywords": [],
   "author": "",
