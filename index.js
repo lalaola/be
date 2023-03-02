@@ -3,7 +3,8 @@ import db from "./config/database.js";
 import productRoute from "./route/productRoute.js";
 import cors from "cors";
 const app = express();
- 
+const PORT = process.env.PORT || 4000
+
 try {
     await db.authenticate();
     console.log('Database connected...');
@@ -15,4 +16,4 @@ app.use(cors());
 app.use(express.json());
 app.use('/products', productRoute);
  
-app.listen(5000, () => console.log('Server running at port 5000'));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}`))
