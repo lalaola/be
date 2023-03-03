@@ -17,4 +17,4 @@ app.use(cors());
 app.use(express.json());
 app.use('/products', productRoute);
  
-app.listen(PORT, () => console.log(`app listening on port ${PORT}`))
+app.listen(PORT, () => console.log(`BAru listening on port ${PORT}`))
