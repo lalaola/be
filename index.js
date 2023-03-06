@@ -4,7 +4,7 @@ import productRoute from "./route/productRoute.js";
 import cors from "cors";
 
 const app = express();
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 1000
 
 try {
     await db.authenticate();
