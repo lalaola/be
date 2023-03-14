@@ -5,13 +5,15 @@ import {
     createProduct,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductByDesc
 } from "../controller/product.js";
  
 const router = express.Router();
  
 router.get('/', getAllProducts);
 router.get('/:id', getProductById);
+router.get('/:desc', getProductByDesc);
 router.post('/', createProduct);
 router.patch('/:id', updateProduct);
 router.delete('/:id', deleteProduct);
