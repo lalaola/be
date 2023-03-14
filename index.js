@@ -1,23 +1,20 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const url = 'mongodb+srv://islahola:ASb2L6YYZY8z8o6k@cluster0.pmzcmix.mongodb.net/?retryWrites=true&w=majority'
+import express from "express";
+import db from "./config/database.js";
+import productRoute from "./route/productRoute.js";
+import cors from "cors";
 
-// ASb2L6YYZY8z8o6k
+const app = express();
+const PORT = process.env.PORT || 1000
 
-const app = express()
-
-mongoose.connect(url, {useNewUrlParser:true})
-const con = mongoose.connection
-
-con.on('open', () => {
-    console.log('connected...')
-})
-
-app.use(express.json())
-
-const alienRouter = require('./routes/aliens')
-app.use('/aliens',alienRouter)
-
-app.listen(9000, () => {
-    console.log('Server started')
-})
+try {
+    await db.authenticate();
+    console.log('Database connected...Yes');
+} catch (error) {
+    console.error('Connection error:', error);
+}
+ 
+app.use(cors());
+app.use(express.json());
+app.use('/products', productRoute);
+ 
+app.listen(PORT, () => console.log(`Baru ya listening on port ${PORT}`))
